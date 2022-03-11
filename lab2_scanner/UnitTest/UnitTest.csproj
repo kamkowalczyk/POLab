@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lab2_scanner\lab2_scanner.csproj" />
     <ProjectReference Include="..\Zadanie1\Zadanie1.csproj" />
   </ItemGroup>
 

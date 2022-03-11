@@ -1661,16 +1661,6 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "lab2_scanner/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/lab2_scanner.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/lab2_scanner.dll": {}
-        }
-      },
       "Zadanie1/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -6124,11 +6114,6 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "lab2_scanner/1.0.0": {
-      "type": "project",
-      "path": "../lab2_scanner/lab2_scanner.csproj",
-      "msbuildProject": "../lab2_scanner/lab2_scanner.csproj"
-    },
     "Zadanie1/1.0.0": {
       "type": "project",
       "path": "../Zadanie1/Zadanie1.csproj",
@@ -6141,8 +6126,7 @@
       "MSTest.TestFramework >= 2.2.3",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "Zadanie1 >= 1.0.0",
-      "coverlet.collector >= 3.0.2",
-      "lab2_scanner >= 1.0.0"
+      "coverlet.collector >= 3.0.2"
     ]
   },
   "packageFolders": {
@@ -6172,9 +6156,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\lab2_scanner\\lab2_scanner.csproj": {
-              "projectPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\lab2_scanner\\lab2_scanner.csproj"
-            },
             "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\Zadanie1\\Zadanie1.csproj": {
               "projectPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\Zadanie1\\Zadanie1.csproj"
             }

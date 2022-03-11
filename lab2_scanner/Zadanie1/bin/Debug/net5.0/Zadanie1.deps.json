@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "lab2_scanner/1.0.0": {
+      "Zadanie1/1.0.0": {
         "runtime": {
-          "lab2_scanner.dll": {}
+          "Zadanie1.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "lab2_scanner/1.0.0": {
+    "Zadanie1/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
