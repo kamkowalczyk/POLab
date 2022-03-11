@@ -1,0 +1,16 @@
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\bin\Debug\net5.0\lab2_scanner.exe
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\bin\Debug\net5.0\lab2_scanner.deps.json
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\bin\Debug\net5.0\lab2_scanner.runtimeconfig.json
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\bin\Debug\net5.0\lab2_scanner.runtimeconfig.dev.json
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\bin\Debug\net5.0\lab2_scanner.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\bin\Debug\net5.0\ref\lab2_scanner.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\bin\Debug\net5.0\lab2_scanner.pdb
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.csproj.AssemblyReference.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.AssemblyInfoInputs.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.AssemblyInfo.cs
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.csproj.CoreCompileInputs.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\ref\lab2_scanner.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.pdb
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\lab2_scanner\lab2_scanner\obj\Debug\net5.0\lab2_scanner.genruntimeconfig.cache
