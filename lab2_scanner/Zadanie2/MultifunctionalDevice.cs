@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zadanie1;
 
-namespace Zadanie1
+namespace Zadanie2
 {
-    public class Copier : IDevice
+    public class MultifunctionalDevice : IFax
     {
-        public int Counter {get; set;}
-
-        public int PrintCounter { get; set; }
+        public int Counter { get; set; }
         public int ScanCounter { get; set; }
+        public int PrintCounter { get; set; }
+
+        public int FaxCounter { get; set; }
+
+        public List<string> faxes = new List<string>();
+
 
         protected IDevice.State state = IDevice.State.off;
 
         public IDevice.State GetState()
         {
-           return state;
+            return state;
         }
 
         public void PowerOff()
@@ -29,7 +34,7 @@ namespace Zadanie1
 
         public void PowerOn()
         {
-            if(state == IDevice.State.on) return;
+            if (state == IDevice.State.on) return;
             Counter++;
             state = IDevice.State.on;
             Console.WriteLine("Device is on...!");
@@ -76,10 +81,35 @@ namespace Zadanie1
         public void Scan(out IDocument document)
         {
             document = new PDFDocument(filename: null);
-            if(state != IDevice.State.off) return;
+            if (state != IDevice.State.off) return;
             ScanCounter++;
-            document = new PDFDocument(filename:"Scan" + ScanCounter);
-            Console.WriteLine(DateTime.Now + "Scan: " +document.GetFileName());
+            document = new PDFDocument(filename: "Scan" + ScanCounter);
+            Console.WriteLine(DateTime.Now + "Scan: " + document.GetFileName());
+        }
+
+        public void SendFax(in IDocument document, string number)
+        {
+            if (state == IDevice.State.off) return;
+
+            try
+            {
+                int.Parse(number);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Wrong number");
+                return;
+            }
+
+            Console.WriteLine(DateTime.Now + " Fax: " + document.GetFileName() + " To : " + number);
+            FaxCounter++;
+        }
+        public void GetFax()
+        {
+            foreach (string fax in faxes)
+            {
+                Console.WriteLine(fax);
+            }
         }
     }
 }

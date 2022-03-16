@@ -10,7 +10,22 @@
       "ProjectGuid": "d1f4030c-ac5b-4eda-a57d-4e385828e9ba",
       "DisplayName": "UnitTest",
       "ColorIndex": 1
+    },
+    "3bf7cf39-0b97-4fa3-aad3-dc24e6ce12f2": {
+      "ProjectGuid": "3bf7cf39-0b97-4fa3-aad3-dc24e6ce12f2",
+      "DisplayName": "lab2_scanner",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Różne pliki",
+      "ColorIndex": -1
+    },
+    "8a1d3eaa-6cef-40a9-8224-89fbd7dd9196": {
+      "ProjectGuid": "8a1d3eaa-6cef-40a9-8224-89fbd7dd9196",
+      "DisplayName": "Zadanie2",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 4
 }
