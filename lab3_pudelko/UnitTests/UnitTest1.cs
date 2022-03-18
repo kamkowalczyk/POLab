@@ -1,6 +1,5 @@
 using lab3_pudelko;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PudelkoLibrary;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -68,7 +67,7 @@ namespace PudelkoUnitTests
         public void Constructor_3params_InMeters(double a, double b, double c,
                                                       double expectedA, double expectedB, double expectedC)
         {
-            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.meter);
+            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.Meter);
 
             AssertPudelko(p, expectedA, expectedB, expectedC);
         }
@@ -81,7 +80,7 @@ namespace PudelkoUnitTests
         public void Constructor_3params_InCentimeters(double a, double b, double c,
                                                       double expectedA, double expectedB, double expectedC)
         {
-            Pudelko p = new Pudelko(a: a, b: b, c: c, unit: UnitOfMeasure.centimeter);
+            Pudelko p = new Pudelko(a: a, b: b, c: c, unit: UnitOfMeasure.Centimeter);
 
             AssertPudelko(p, expectedA, expectedB, expectedC);
         }
@@ -94,7 +93,7 @@ namespace PudelkoUnitTests
         public void Constructor_3params_InMilimeters(double a, double b, double c,
                                                      double expectedA, double expectedB, double expectedC)
         {
-            Pudelko p = new Pudelko(unit: UnitOfMeasure.milimeter, a: a, b: b, c: c);
+            Pudelko p = new Pudelko(unit: UnitOfMeasure.Milimeter, a: a, b: b, c: c);
 
             AssertPudelko(p, expectedA, expectedB, expectedC);
         }
@@ -119,7 +118,7 @@ namespace PudelkoUnitTests
         [DataRow(1.0019, 2.5999, 1.001, 2.599)]
         public void Constructor_2params_InMeters(double a, double b, double expectedA, double expectedB)
         {
-            Pudelko p = new Pudelko(a: a, b: b, unit: UnitOfMeasure.meter);
+            Pudelko p = new Pudelko(a: a, b: b, unit: UnitOfMeasure.Meter);
 
             AssertPudelko(p, expectedA, expectedB, expectedC: 0.1);
         }
@@ -130,7 +129,7 @@ namespace PudelkoUnitTests
         [DataRow(2.0019, 0.25999, 0.02, 0.002)]
         public void Constructor_2params_InCentimeters(double a, double b, double expectedA, double expectedB)
         {
-            Pudelko p = new Pudelko(unit: UnitOfMeasure.centimeter, a: a, b: b);
+            Pudelko p = new Pudelko(unit: UnitOfMeasure.Centimeter, a: a, b: b);
 
             AssertPudelko(p, expectedA, expectedB, expectedC: 0.1);
         }
@@ -141,7 +140,7 @@ namespace PudelkoUnitTests
         [DataRow(200.19, 2.5999, 0.2, 0.002)]
         public void Constructor_2params_InMilimeters(double a, double b, double expectedA, double expectedB)
         {
-            Pudelko p = new Pudelko(unit: UnitOfMeasure.milimeter, a: a, b: b);
+            Pudelko p = new Pudelko(unit: UnitOfMeasure.Milimeter, a: a, b: b);
 
             AssertPudelko(p, expectedA, expectedB, expectedC: 0.1);
         }
@@ -176,7 +175,7 @@ namespace PudelkoUnitTests
         [DataRow(2.0019, 0.02)]
         public void Constructor_1param_InCentimeters(double a, double expectedA)
         {
-            Pudelko p = new Pudelko(unit: UnitOfMeasure.centimeter, a: a);
+            Pudelko p = new Pudelko(unit: UnitOfMeasure.Centimeter, a: a);
 
             AssertPudelko(p, expectedA, expectedB: 0.1, expectedC: 0.1);
         }
@@ -187,7 +186,7 @@ namespace PudelkoUnitTests
         [DataRow(200.19, 0.2)]
         public void Constructor_1param_InMilimeters(double a, double expectedA)
         {
-            Pudelko p = new Pudelko(unit: UnitOfMeasure.milimeter, a: a);
+            Pudelko p = new Pudelko(unit: UnitOfMeasure.Milimeter, a: a);
 
             AssertPudelko(p, expectedA, expectedB: 0.1, expectedC: 0.1);
         }
@@ -232,7 +231,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_3params_InMeters_ArgumentOutOfRangeException(double a, double b, double c)
         {
-            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.meter);
+            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.Meter);
         }
 
         [DataTestMethod, TestCategory("Constructors")]
@@ -263,7 +262,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_3params_InCentimeters_ArgumentOutOfRangeException(double a, double b, double c)
         {
-            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.centimeter);
+            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.Centimeter);
         }
 
 
@@ -295,7 +294,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_3params_InMiliimeters_ArgumentOutOfRangeException(double a, double b, double c)
         {
-            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.milimeter);
+            Pudelko p = new Pudelko(a, b, c, unit: UnitOfMeasure.Milimeter);
         }
 
 
@@ -325,7 +324,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_2params_InMeters_ArgumentOutOfRangeException(double a, double b)
         {
-            Pudelko p = new Pudelko(a, b, unit: UnitOfMeasure.meter);
+            Pudelko p = new Pudelko(a, b, unit: UnitOfMeasure.Meter);
         }
 
         [DataTestMethod, TestCategory("Constructors")]
@@ -344,7 +343,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_2params_InCentimeters_ArgumentOutOfRangeException(double a, double b)
         {
-            Pudelko p = new Pudelko(a, b, unit: UnitOfMeasure.centimeter);
+            Pudelko p = new Pudelko(a, b, unit: UnitOfMeasure.Centimeter);
         }
 
         [DataTestMethod, TestCategory("Constructors")]
@@ -363,7 +362,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_2params_InMilimeters_ArgumentOutOfRangeException(double a, double b)
         {
-            Pudelko p = new Pudelko(a, b, unit: UnitOfMeasure.milimeter);
+            Pudelko p = new Pudelko(a, b, unit: UnitOfMeasure.Milimeter);
         }
 
 
@@ -386,7 +385,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_1param_InMeters_ArgumentOutOfRangeException(double a)
         {
-            Pudelko p = new Pudelko(a, unit: UnitOfMeasure.meter);
+            Pudelko p = new Pudelko(a, unit: UnitOfMeasure.Meter);
         }
 
         [DataTestMethod, TestCategory("Constructors")]
@@ -397,7 +396,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_1param_InCentimeters_ArgumentOutOfRangeException(double a)
         {
-            Pudelko p = new Pudelko(a, unit: UnitOfMeasure.centimeter);
+            Pudelko p = new Pudelko(a, unit: UnitOfMeasure.Centimeter);
         }
 
         [DataTestMethod, TestCategory("Constructors")]
@@ -408,7 +407,7 @@ namespace PudelkoUnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Constructor_1param_InMilimeters_ArgumentOutOfRangeException(double a)
         {
-            Pudelko p = new Pudelko(a, unit: UnitOfMeasure.milimeter);
+            Pudelko p = new Pudelko(a, unit: UnitOfMeasure.Milimeter);
         }
 
         #endregion
@@ -432,7 +431,7 @@ namespace PudelkoUnitTests
         [DataRow("mm", 2.5, 9.321, 0.1, "2500 mm × 9321 mm × 100 mm")]
         public void ToString_Formattable_Culture_EN(string format, double a, double b, double c, string expectedStringRepresentation)
         {
-            var p = new Pudelko(a, b, c, unit: UnitOfMeasure.meter);
+            var p = new Pudelko(a, b, c, unit: UnitOfMeasure.Meter);
             Assert.AreEqual(expectedStringRepresentation, p.ToString(format));
         }
 
