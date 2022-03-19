@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace lab3_pudelko
 {
-    public sealed class Pudelko : IEquatable<Pudelko>, IEnumerable<decimal>
+    public sealed class Pudelko : IEquatable<Pudelko>, IEnumerable<decimal>, IFormattable
     {
         // przechowuje w metrach
         private decimal _a;
@@ -33,6 +35,7 @@ namespace lab3_pudelko
             get => Math.Round(_c, 3);
             init => _c = value;
         }
+
 
         public UnitOfMeasure UnitOfMeasure { get; init; }
 
@@ -133,19 +136,62 @@ namespace lab3_pudelko
             }
         }
 
-        public string ToString(string format)
+        public static Pudelko Parse(string text)
         {
+            var regex = new Regex(@"([0-9]+\.?[0-9]*) ([m,mm,cm]+)");
+            var matches = regex.Matches(text);
+            if (matches.Count != 3)
+            {
+                throw new FormatException();
+            }
+
+            var values = matches.Select(a => decimal.Parse(a.Groups[1].Value)).ToArray();
+            if (values.Count() != 3)
+            {
+                throw new FormatException();
+            }
+            var unitOfMeasureString = matches[0].Groups[2].Value;
+            var unitOfMeasure = UnitOfMeasure.Unknown;
+            switch (unitOfMeasureString)
+            {
+                case "m":
+                    unitOfMeasure = UnitOfMeasure.Meter;
+                    break;
+                case "cm":
+                    unitOfMeasure = UnitOfMeasure.Centimeter;
+                    break;
+                case "mm":
+                    unitOfMeasure = UnitOfMeasure.Milimeter;
+                    break;
+            }
+
+            return new Pudelko(values[0], values[1], values[2], unitOfMeasure);
+        }
+
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            if (formatProvider is null)
+            {
+                formatProvider = CultureInfo.CurrentCulture;
+            }
             return format switch
             {
-                "m" => ToString(),
-                "cm" => $"{Math.Round(MeasureConverter.ConvertToCentimeters(A), 1)} cm × " +
-                        $"{Math.Round(MeasureConverter.ConvertToCentimeters(B), 1)} cm × " +
-                        $"{Math.Round(MeasureConverter.ConvertToCentimeters(C), 1)} cm",
-                "mm" => $"{Math.Round(MeasureConverter.ConvertToMilimeters(A), 0)} mm × " +
-                        $"{Math.Round(MeasureConverter.ConvertToMilimeters(B), 0)} mm × " +
-                        $"{Math.Round(MeasureConverter.ConvertToMilimeters(C), 0)} mm",
+                "m" => $"{Math.Round(A, 1).ToString(formatProvider)} m × " +
+                       $"{Math.Round(B, 1).ToString(formatProvider)} m × " +
+                       $"{Math.Round(C, 1).ToString(formatProvider)} m",
+                "cm" => $"{Math.Round(MeasureConverter.ConvertToCentimeters(A), 1).ToString(formatProvider)} cm × " +
+                        $"{Math.Round(MeasureConverter.ConvertToCentimeters(B), 1).ToString(formatProvider)} cm × " +
+                        $"{Math.Round(MeasureConverter.ConvertToCentimeters(C), 1).ToString(formatProvider)} cm",
+                "mm" => $"{Math.Round(MeasureConverter.ConvertToMilimeters(A), 0).ToString(formatProvider)} mm × " +
+                        $"{Math.Round(MeasureConverter.ConvertToMilimeters(B), 0).ToString(formatProvider)} mm × " +
+                        $"{Math.Round(MeasureConverter.ConvertToMilimeters(C), 0).ToString(formatProvider)} mm",
                 _ => throw new FormatException()
             };
+        }
+
+        public string ToString(string format)
+        {
+            return ToString(format, null);
         }
     }
 }

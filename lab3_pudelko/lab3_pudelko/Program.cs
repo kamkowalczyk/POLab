@@ -6,7 +6,8 @@ namespace lab3_pudelko
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var input = "2500 mm × 9321 mm × 100 mm";
+            Pudelko.Parse(input);
         }
     }
 }
