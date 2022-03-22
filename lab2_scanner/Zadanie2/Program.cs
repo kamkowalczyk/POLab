@@ -1,19 +1,24 @@
 ﻿using System;
+using Zadanie1;
 
 namespace Zadanie2
 {
-    internal class Program
+    class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            var xerox = new Copier();
+            xerox.PowerOn();
+            IDocument doc1 = new PDFDocument("aaa.pdf");
+            xerox.Print(in doc1);
 
-            MultifunctionalDevice fax = new MultifunctionalDevice();
+            IDocument doc2;
+            xerox.Scan(out doc2);
 
-            string tekst = Console.ReadLine();
-
-            fax.faxes.Add(tekst);
-
-            fax.GetFax();
+            xerox.ScanAndPrint();
+            System.Console.WriteLine(xerox.Counter);
+            System.Console.WriteLine(xerox.PrintCounter);
+            System.Console.WriteLine(xerox.ScanCounter);
         }
     }
 }
