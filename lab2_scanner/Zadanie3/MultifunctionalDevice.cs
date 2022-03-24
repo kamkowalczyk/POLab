@@ -3,113 +3,93 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zadanie1;
 
-namespace Zadanie2
+namespace Zadanie3
 {
-    public class MultifunctionalDevice : IFax
+    public class MultifunctionalDevice : BaseDevice, IFax
     {
-        public int Counter { get; set; }
-        public int ScanCounter { get; set; }
         public int PrintCounter { get; set; }
-
+        public int ScanCounter { get; set; }
         public int FaxCounter { get; set; }
+        public new int Counter { get; set; }
 
-        public List<string> faxes = new List<string>();
 
-
-        protected IDevice.State state = IDevice.State.off;
-
-        public IDevice.State GetState()
+        public new void PowerOff()
         {
-            return state;
-        }
-
-        public void PowerOff()
-        {
-            if (state == IDevice.State.off) return;
-            state = IDevice.State.off;
-            Console.WriteLine("...Device is off!");
-        }
-
-        public void PowerOn()
-        {
-            if (state == IDevice.State.on) return;
-            Counter++;
-            state = IDevice.State.on;
-            Console.WriteLine("Device is on...!");
-        }
-
-        public void Scan(out IDocument document, IDocument.FormatType formatType)
-        {
-            document = new PDFDocument(filename: null);
-            if (state == IDevice.State.off) return;
-            ScanCounter++;
-            if (formatType == IDocument.FormatType.PDF)
+            if (state == IDevice.State.on)
             {
-                document = new PDFDocument(filename: "PDFScan" + ScanCounter + ".pdf");
-                Console.WriteLine(DateTime.Now + " Scan: " + document.GetFileName());
-            }
-            else if (formatType == IDocument.FormatType.JPG)
-            {
-                document = new PDFDocument(filename: "JPGScan" + ScanCounter + ".jpg");
-                Console.WriteLine(DateTime.Now + " Scan: " + document.GetFileName());
-            }
-            else if (formatType == IDocument.FormatType.TXT)
-            {
-                document = new PDFDocument(filename: "TXTScan" + ScanCounter + ".txt");
-                Console.WriteLine(DateTime.Now + " Scan: " + document.GetFileName());
+                state = IDevice.State.off;
             }
         }
+
+        public new void PowerOn()
+        {
+            if (state == IDevice.State.off)
+            {
+                state = IDevice.State.on;
+                Counter++;
+            }
+        }
+
 
         public void Print(in IDocument document)
         {
-            if (state != IDevice.State.off) return;
+            if (state == IDevice.State.off) return;
+
+            var date = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            var name = document.GetFileName();
+
             PrintCounter++;
-            Console.WriteLine(DateTime.Now.ToString() + " Print: " + document.GetFileName());
+            Console.WriteLine($"{date} Print: {name}");
+        }
+
+        public void Scan(out IDocument document, IDocument.FormatType formatType = IDocument.FormatType.JPG)
+        {
+            if (state == IDevice.State.off) { document = null; return; }
+
+            var date = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            document = formatType switch
+            {
+                IDocument.FormatType.PDF => new PDFDocument($"PDFScan{ScanCounter}.pdf"),
+                IDocument.FormatType.JPG => new ImageDocument($"ImageScan{ScanCounter}.jpg"),
+                IDocument.FormatType.TXT => new TextDocument($"TextScan{ScanCounter}.txt"),
+                _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(formatType)),
+            };
+
+            ScanCounter++;
+            Console.WriteLine($"{date} Scan: {document.GetFileName()}");
         }
 
         public void ScanAndPrint()
         {
+            if (state == IDevice.State.off) return;
 
-            ScanCounter++;
-            PrintCounter++;
-            Scan(out IDocument document, IDocument.FormatType.JPG);
+            IDocument document;
+            Scan(out document);
             Print(in document);
         }
 
-        public void Scan(out IDocument document)
+        public void SendFax(out IDocument document)
         {
-            document = new PDFDocument(filename: null);
-            if (state != IDevice.State.off) return;
-            ScanCounter++;
-            document = new PDFDocument(filename: "Scan" + ScanCounter);
-            Console.WriteLine(DateTime.Now + "Scan: " + document.GetFileName());
+            if (state == IDevice.State.off) { document = null; return; }
+
+            Scan(out document);
+
+            var date = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+
+            FaxCounter++;
+            Console.WriteLine($"{date} Fax sent: {document.GetFileName()}");
         }
 
-        public void SendFax(in IDocument document, string number)
+        public void ReceiveFax(in IDocument document)
         {
             if (state == IDevice.State.off) return;
 
-            try
-            {
-                int.Parse(number);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Wrong number");
-                return;
-            }
+            var date = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
 
-            Console.WriteLine(DateTime.Now + " Fax: " + document.GetFileName() + " To : " + number);
             FaxCounter++;
-        }
-        public void GetFax()
-        {
-            foreach (string fax in faxes)
-            {
-                Console.WriteLine(fax);
-            }
+            Print(in document);
+            Console.WriteLine($"{date} Fax received: {document.GetFileName()}");
         }
     }
 }
