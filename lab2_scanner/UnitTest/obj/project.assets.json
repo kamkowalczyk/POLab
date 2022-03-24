@@ -6135,9 +6135,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\UnitTest\\UnitTest.csproj",
-      "projectName": "UnitTest",
-      "projectPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\UnitTest\\UnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\UnitTest\\Zadanie1UnitTest.csproj",
+      "projectName": "Zadanie1UnitTest",
+      "projectPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\UnitTest\\Zadanie1UnitTest.csproj",
       "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\UnitTest\\obj\\",
       "projectStyle": "PackageReference",

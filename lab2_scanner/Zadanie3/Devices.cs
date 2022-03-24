@@ -51,8 +51,7 @@ namespace Zadanie1
     }
     public interface IFax : IDevice
     {
-        void Print(in IDocument document);
-        void Scan(out IDocument document, IDocument.FormatType formatType);
-        void SendFax(in IDocument document, string number);
+        void SendFax(out IDocument document);
+        void ReceiveFax(in IDocument document);
     }
 }

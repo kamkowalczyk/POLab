@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N3qDmRRhwNuAOxCb/eFkeReO6Pz682CIgm7/Thqz6PjXJWMsrTmCgwYF/xr5urt3z6OoeSuplbJMZ5zZiLrPAw==",
+  "dgSpecHash": "OIEJR1eXiBJhRTr7w9FUXgNXbCO5zzKSxgrmwLcGvoG2FZiHsn91LjMIP28If0o1L2f6VEf8M/ddZFqk66uLYw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\UnitTest\\UnitTest.csproj",
+  "projectFilePath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\lab2_scanner\\UnitTest\\Zadanie1UnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kamil\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Kamil\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

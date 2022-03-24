@@ -8,7 +8,7 @@
     },
     "d1f4030c-ac5b-4eda-a57d-4e385828e9ba": {
       "ProjectGuid": "d1f4030c-ac5b-4eda-a57d-4e385828e9ba",
-      "DisplayName": "UnitTest",
+      "DisplayName": "Zadanie1UnitTest",
       "ColorIndex": 1
     },
     "3bf7cf39-0b97-4fa3-aad3-dc24e6ce12f2": {
@@ -30,7 +30,22 @@
       "ProjectGuid": "f1dcb40c-2933-4a19-9c50-923677797225",
       "DisplayName": "Zadanie3",
       "ColorIndex": 4
+    },
+    "960d6622-8cf5-4732-bba8-6e5a5f580df0": {
+      "ProjectGuid": "960d6622-8cf5-4732-bba8-6e5a5f580df0",
+      "DisplayName": "Zadanie2UnitTest",
+      "ColorIndex": 5
+    },
+    "9d509f41-c136-4c3e-82d3-381fb5c3598b": {
+      "ProjectGuid": "9d509f41-c136-4c3e-82d3-381fb5c3598b",
+      "DisplayName": "Zadanie2UTest",
+      "ColorIndex": 6
+    },
+    "1e3d3303-3384-43de-a319-d48faf82f6b5": {
+      "ProjectGuid": "1e3d3303-3384-43de-a319-d48faf82f6b5",
+      "DisplayName": "Zadanie2MsTest",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 8
 }

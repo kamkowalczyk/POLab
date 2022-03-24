@@ -1,5 +1,5 @@
 ﻿using System;
-using Zadanie1;
+
 
 namespace Zadanie2
 {
@@ -19,6 +19,11 @@ namespace Zadanie2
             System.Console.WriteLine(xerox.Counter);
             System.Console.WriteLine(xerox.PrintCounter);
             System.Console.WriteLine(xerox.ScanCounter);
+            MultifunctionalDevice fax = new MultifunctionalDevice();
+            fax.PowerOn();
+            fax.Scan(out doc2);
+            System.Console.WriteLine(fax.ScanCounter);
+
         }
     }
 }
