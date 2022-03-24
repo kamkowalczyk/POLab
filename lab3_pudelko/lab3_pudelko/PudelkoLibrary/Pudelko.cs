@@ -39,6 +39,7 @@ namespace lab3_pudelko
 
         public UnitOfMeasure Unit { get; init; }
 
+
         public decimal Objetosc => Math.Round(_a * _b * _c, 9);
         public decimal Pole => Math.Round(_a * _b * 2 + _a * _c * 2 + _b * _c * 2, 6);
 
@@ -104,8 +105,8 @@ namespace lab3_pudelko
 
         public static Pudelko operator +(Pudelko leftBox, Pudelko rightBox)
         {
-            var leftBoxParameters = new[] { leftBox.A, leftBox.B, leftBox.C }.OrderByDescending(a => a).ToArray();
-            var rightBoxParameters = new[] { rightBox.A, rightBox.B, rightBox.C }.OrderByDescending(a => a).ToArray();
+            var leftBoxParameters = leftBox._parameters.OrderByDescending(a => a).ToArray();
+            var rightBoxParameters = rightBox._parameters.OrderByDescending(a => a).ToArray();
             var a = new[] { leftBoxParameters[0], rightBoxParameters[0] }.Max();
             var b = new[] { leftBoxParameters[1], rightBoxParameters[1] }.Max();
             var c = leftBoxParameters[2] + rightBoxParameters[2];
@@ -141,10 +142,10 @@ namespace lab3_pudelko
             }
         }
 
-        public static Pudelko Parse(string text)
+        public static Pudelko Parse(string input)
         {
             var regex = new Regex(@"([0-9]+\.?[0-9]*) ([m,mm,cm]+)");
-            var matches = regex.Matches(text);
+            var matches = regex.Matches(input);
             if (matches.Count != 3)
             {
                 throw new FormatException();

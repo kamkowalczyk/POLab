@@ -59,7 +59,7 @@ namespace UnitTests
             // Act
             Action act = () => MeasureConverter.ConvertToMeters(value, UnitOfMeasure.Unknown);
             // Assert
-            act.Should().Throw<ArgumentException>().WithMessage("Unit of measure cannot be unknown");
+            act.Should().Throw<ArgumentException>().WithMessage("Unit of measure can't be unknown");
         }
         [Test]
         public void ConvertToCentimeters_UnitOfMeasureDefaultValue_ShouldReturnDecimal()
@@ -113,7 +113,7 @@ namespace UnitTests
             // Act
             Action act = () => MeasureConverter.ConvertToCentimeters(value, UnitOfMeasure.Unknown);
             // Assert
-            act.Should().Throw<ArgumentException>().WithMessage("Unit of measure cannot be unknown");
+            act.Should().Throw<ArgumentException>().WithMessage("Unit of measure can't be unknown");
         }
         ////
         [Test]
@@ -168,7 +168,7 @@ namespace UnitTests
             // Act
             Action act = () => MeasureConverter.ConvertToMilimeters(value, UnitOfMeasure.Unknown);
             // Assert
-            act.Should().Throw<ArgumentException>().WithMessage("Unit of measure cannot be unknown");
+            act.Should().Throw<ArgumentException>().WithMessage("Unit of measure can't be unknown");
         }
     }
 }
