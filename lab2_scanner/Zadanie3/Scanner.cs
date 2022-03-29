@@ -6,44 +6,48 @@ using System.Threading.Tasks;
 
 namespace Zadanie3
 {
-    public class Scanner :BaseDevice, IScanner
-    { 
-        public int ScanCounter { get; set; }
+    public class Scanner : IScanner
+    {
+        public int Counter { get; set; }
+        public IDevice.State state = IDevice.State.off;
 
-        public new int Counter { get; set; }
-
-        public new void PowerOn()
+        public IDevice.State GetState()
         {
-            if (state == IDevice.State.off)
-            {
-                state = IDevice.State.on;
-                Counter++;
-            }
+            return state;
         }
 
-        public new void PowerOff()
+
+        public void PowerOff()
         {
             if (state == IDevice.State.on)
             {
                 state = IDevice.State.off;
             }
-
         }
 
-        public void Scan(out IDocument document, IDocument.FormatType formatType = IDocument.FormatType.JPG)
+        public void PowerOn()
+        {
+            Counter++;
+            if (state == IDevice.State.off)
+            {
+                state = IDevice.State.on;
+            }
+        }
+
+        public void Scan(out IDocument document, IDocument.FormatType formatType)
         {
             if (state == IDevice.State.off) { document = null; return; }
 
             var date = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
             document = formatType switch
             {
-                IDocument.FormatType.PDF => new PDFDocument($"PDFScan{ScanCounter}.pdf"),
-                IDocument.FormatType.JPG => new ImageDocument($"ImageScan{ScanCounter}.jpg"),
-                IDocument.FormatType.TXT => new TextDocument($"TextScan{ScanCounter}.txt"),
+                IDocument.FormatType.PDF => new PDFDocument($"PDFScan{Counter}.pdf"),
+                IDocument.FormatType.JPG => new ImageDocument($"ImageScan{Counter}.jpg"),
+                IDocument.FormatType.TXT => new TextDocument($"TextScan{Counter}.txt"),
                 _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(formatType)),
             };
 
-            ScanCounter++;
+            Counter++;
             Console.WriteLine($"{date} Scan: {document.GetFileName()}");
         }
     }

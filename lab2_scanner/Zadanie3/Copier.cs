@@ -8,62 +8,70 @@ namespace Zadanie3
 {
     public class Copier : BaseDevice
     {
-        public Printer Printer { get; set; }
-        public Scanner Scanner { get; set; }
+        public new int Counter { get; private set; }
+        public int PrintCounter { get => printer.Counter; }
+        public int ScanCounter { get => scanner.Counter; }
 
-        public Copier()
+        public Scanner scanner = new Scanner();
+        public Printer printer = new Printer();
+
+
+        public void PowerOff(IDevice device)
         {
-            Printer = new Printer();
-            Scanner = new Scanner();
+            device.PowerOff();
         }
-        public void Scan(out IDocument document, IDocument.FormatType formatType = IDocument.FormatType.JPG)
+        public new void PowerOff()
         {
-            if (state == IDevice.State.on)
+            PowerOff(printer);
+            PowerOff(scanner);
+        }
+
+        public void PowerOn(IDevice device)
+        {
+
+            if (device.GetState() == IDevice.State.off) Counter++;
+            device.PowerOn();
+        }
+        public new void PowerOn()
+        {
+            if (GetState(scanner) == IDevice.State.off) Counter++;
+            if (GetState(printer) == IDevice.State.off) Counter++;
+            PowerOn(scanner);
+            PowerOn(printer);
+        }
+
+        public IDevice.State GetState(IDevice device)
+        {
+            return device.GetState();
+        }
+        public new IDevice.State GetState()
+        {
+            if (GetState(printer) == IDevice.State.on && GetState(scanner) == IDevice.State.on)
             {
-                Scanner.PowerOn();
-                Scanner.Scan(out document, formatType);
-                Scanner.PowerOff();
+                return IDevice.State.on;
             }
             else
             {
-                document = null;
+                return IDevice.State.off;
             }
         }
 
+
         public void Print(in IDocument document)
         {
-            if (state == IDevice.State.on)
-            {
-                Printer.PowerOn();
-                Printer.Print(document);
-                Printer.PowerOff();
-            }
+            printer.Print(in document);
+        }
+
+        public void Scan(out IDocument document, IDocument.FormatType formatType = IDocument.FormatType.JPG)
+        {
+            scanner.Scan(out document, formatType);
         }
 
         public void ScanAndPrint()
         {
-            if (state == IDevice.State.on)
-            {
-                IDocument doc;
-                Scan(out doc, IDocument.FormatType.JPG);
-                Print(in doc);
-            }
-        }
-
-        public new void PowerOn()
-        {
-            if (state == IDevice.State.off)
-            {
-                base.PowerOn();
-            }
-        }
-
-        public new void PowerOff()
-        {
-            if (state == IDevice.State.on)
-            {
-                base.PowerOff();
-            }
+            IDocument document;
+            Scan(out document);
+            Print(in document);
         }
     }
 }
