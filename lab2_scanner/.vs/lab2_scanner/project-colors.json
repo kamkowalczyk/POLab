@@ -50,7 +50,12 @@
       "ProjectGuid": "88d94ea4-8358-4b90-a3f1-6a9d116a97bf",
       "DisplayName": "Zadanie2UnitTest",
       "ColorIndex": 8
+    },
+    "89c1239e-9205-4c36-ad24-225ccacb54af": {
+      "ProjectGuid": "89c1239e-9205-4c36-ad24-225ccacb54af",
+      "DisplayName": "Zadanie3UnitTest",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 9
+  "NextColorIndex": 10
 }

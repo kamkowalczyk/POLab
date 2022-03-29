@@ -6,53 +6,45 @@ using System.Threading.Tasks;
 
 namespace Zadanie3
 {
-    public class Scanner : IScanner
-    {
-        protected IDevice.State state = IDevice.State.off;
-
-        public int Counter { get; set; }
+    public class Scanner :BaseDevice, IScanner
+    { 
         public int ScanCounter { get; set; }
 
-        public IDevice.State GetState()
+        public new int Counter { get; set; }
+
+        public new void PowerOn()
         {
-            return state;
+            if (state == IDevice.State.off)
+            {
+                state = IDevice.State.on;
+                Counter++;
+            }
         }
 
-        public void PowerOff()
+        public new void PowerOff()
         {
-            if (state == IDevice.State.off) return;
-            state = IDevice.State.off;
-            Console.WriteLine("...Device is off!");
+            if (state == IDevice.State.on)
+            {
+                state = IDevice.State.off;
+            }
+
         }
 
-        public void PowerOn()
+        public void Scan(out IDocument document, IDocument.FormatType formatType = IDocument.FormatType.JPG)
         {
-            if (state == IDevice.State.on) return;
-            Counter++;
-            state = IDevice.State.on;
-            Console.WriteLine("Device is on...!");
-        }
+            if (state == IDevice.State.off) { document = null; return; }
 
-        public void Scan(out IDocument document, IDocument.FormatType formatType)
-        {
-            document = new PDFDocument(filename: null);
-            if (state == IDevice.State.off) return;
+            var date = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            document = formatType switch
+            {
+                IDocument.FormatType.PDF => new PDFDocument($"PDFScan{ScanCounter}.pdf"),
+                IDocument.FormatType.JPG => new ImageDocument($"ImageScan{ScanCounter}.jpg"),
+                IDocument.FormatType.TXT => new TextDocument($"TextScan{ScanCounter}.txt"),
+                _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(formatType)),
+            };
+
             ScanCounter++;
-            if (formatType == IDocument.FormatType.PDF)
-            {
-                document = new PDFDocument(filename: "PDFScan" + ScanCounter + ".pdf");
-                Console.WriteLine(DateTime.Now + " Scan: " + document.GetFileName());
-            }
-            else if (formatType == IDocument.FormatType.JPG)
-            {
-                document = new PDFDocument(filename: "JPGScan" + ScanCounter + ".jpg");
-                Console.WriteLine(DateTime.Now + " Scan: " + document.GetFileName());
-            }
-            else if (formatType == IDocument.FormatType.TXT)
-            {
-                document = new PDFDocument(filename: "TXTScan" + ScanCounter + ".txt");
-                Console.WriteLine(DateTime.Now + " Scan: " + document.GetFileName());
-            }
+            Console.WriteLine($"{date} Scan: {document.GetFileName()}");
         }
     }
 }

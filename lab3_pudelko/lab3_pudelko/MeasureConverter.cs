@@ -29,7 +29,7 @@ namespace lab3_pudelko
 			switch (unitOfMeasure)
 			{
 				case UnitOfMeasure.Unknown:
-					throw new ArgumentException("Unit of measure cannot be unknown");
+					throw new ArgumentException("Unit of measure can't be unknown");
 				case UnitOfMeasure.Milimeter:
 					return value / 10;
 				case UnitOfMeasure.Centimeter:
@@ -45,7 +45,7 @@ namespace lab3_pudelko
 			switch (unitOfMeasure)
 			{
 				case UnitOfMeasure.Unknown:
-					throw new ArgumentException("Unit of measure cannot be unknown");
+					throw new ArgumentException("Unit of measure can't be unknown");
 				case UnitOfMeasure.Milimeter:
 					return value;
 				case UnitOfMeasure.Centimeter:
