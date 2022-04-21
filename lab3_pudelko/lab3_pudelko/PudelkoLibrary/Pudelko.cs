@@ -12,7 +12,7 @@ namespace lab3_pudelko
 {
     public sealed class Pudelko : IEquatable<Pudelko>, IEnumerable<decimal>, IFormattable
     {
-        // przechowuje w metrach
+       
         private decimal _a;
         private decimal _b;
         private decimal _c;
@@ -20,7 +20,7 @@ namespace lab3_pudelko
 
         public decimal A
         {
-            // get => Math.Round(_a, 3);
+           
             get => Math.Round(_a, 3, MidpointRounding.ToZero);
             init => _a = value;
         }
@@ -111,7 +111,6 @@ namespace lab3_pudelko
             var b = new[] { leftBoxParameters[1], rightBoxParameters[1] }.Max();
             var c = leftBoxParameters[2] + rightBoxParameters[2];
             return new Pudelko(a, b, c);
-            // sprobuj przy testach z _parameters
         }
 
         public static explicit operator double[](Pudelko box) => new[]

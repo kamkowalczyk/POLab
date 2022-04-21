@@ -1,0 +1,12 @@
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\bin\Debug\net5.0\TempElementsLib.deps.json
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\bin\Debug\net5.0\TempElementsLib.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\bin\Debug\net5.0\ref\TempElementsLib.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\bin\Debug\net5.0\TempElementsLib.pdb
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\TempElementsLib.csproj.AssemblyReference.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\TempElementsLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\TempElementsLib.AssemblyInfoInputs.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\TempElementsLib.AssemblyInfo.cs
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\TempElementsLib.csproj.CoreCompileInputs.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\TempElementsLib.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\ref\TempElementsLib.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\TempElementsLib\TempElementsLib\obj\Debug\net5.0\TempElementsLib.pdb

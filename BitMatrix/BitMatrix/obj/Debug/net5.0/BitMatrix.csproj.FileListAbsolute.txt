@@ -1,0 +1,16 @@
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.csproj.AssemblyReference.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.AssemblyInfoInputs.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.AssemblyInfo.cs
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.csproj.CoreCompileInputs.cache
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\bin\Debug\net5.0\BitMatrix.exe
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\bin\Debug\net5.0\BitMatrix.deps.json
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\bin\Debug\net5.0\BitMatrix.runtimeconfig.json
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\bin\Debug\net5.0\BitMatrix.runtimeconfig.dev.json
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\bin\Debug\net5.0\BitMatrix.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\bin\Debug\net5.0\ref\BitMatrix.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\bin\Debug\net5.0\BitMatrix.pdb
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\ref\BitMatrix.dll
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.pdb
+C:\Users\Kamil\OneDrive\Pulpit\Zajęcia_rok2.1\POLab\BitMatrix\BitMatrix\obj\Debug\net5.0\BitMatrix.genruntimeconfig.cache

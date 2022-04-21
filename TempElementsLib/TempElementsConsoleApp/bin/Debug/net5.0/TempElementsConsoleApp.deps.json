@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "TempElementsConsoleApp/1.0.0": {
+        "dependencies": {
+          "TempElementsLib": "1.0.0"
+        },
+        "runtime": {
+          "TempElementsConsoleApp.dll": {}
+        }
+      },
+      "TempElementsLib/1.0.0": {
+        "runtime": {
+          "TempElementsLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TempElementsConsoleApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TempElementsLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "TempElementsLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/TempElementsLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TempElementsLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TempElementsLib/1.0.0": {
+      "type": "project",
+      "path": "../TempElementsLib/TempElementsLib.csproj",
+      "msbuildProject": "../TempElementsLib/TempElementsLib.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "TempElementsLib >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Kamil\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\TempElementsLib\\TempElementsConsoleApp\\TempElementsConsoleApp.csproj",
+      "projectName": "TempElementsConsoleApp",
+      "projectPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\TempElementsLib\\TempElementsConsoleApp\\TempElementsConsoleApp.csproj",
+      "packagesPath": "C:\\Users\\Kamil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\TempElementsLib\\TempElementsConsoleApp\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Kamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\TempElementsLib\\TempElementsLib\\TempElementsLib.csproj": {
+              "projectPath": "C:\\Users\\Kamil\\OneDrive\\Pulpit\\Zajęcia_rok2.1\\POLab\\TempElementsLib\\TempElementsLib\\TempElementsLib.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

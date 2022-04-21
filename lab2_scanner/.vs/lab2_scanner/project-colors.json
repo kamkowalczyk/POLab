@@ -55,7 +55,12 @@
       "ProjectGuid": "89c1239e-9205-4c36-ad24-225ccacb54af",
       "DisplayName": "Zadanie3UnitTest",
       "ColorIndex": 9
+    },
+    "cd871940-e4c3-4cd9-bc0c-18952d0dcf56": {
+      "ProjectGuid": "cd871940-e4c3-4cd9-bc0c-18952d0dcf56",
+      "DisplayName": "Zadanie4",
+      "ColorIndex": 10
     }
   },
-  "NextColorIndex": 10
+  "NextColorIndex": 11
 }

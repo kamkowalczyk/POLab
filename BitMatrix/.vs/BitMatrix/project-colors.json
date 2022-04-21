@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c922d9a6-acb4-4632-9bf9-d9ebf649857f": {
+      "ProjectGuid": "c922d9a6-acb4-4632-9bf9-d9ebf649857f",
+      "DisplayName": "BitMatrix",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
