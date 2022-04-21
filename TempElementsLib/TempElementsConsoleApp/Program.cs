@@ -10,7 +10,8 @@ namespace TempElementsConsoleApp
             //Program.Zadanie1CheckUsing();
 
             //Program.CheckWithTryAndCatch();
-           // TestTempTxtFile();
+            // TestTempTxtFile();
+            TestTempDir();
         }
         #region USING
         static void Zadanie1CheckUsing()
@@ -73,7 +74,7 @@ namespace TempElementsConsoleApp
         }
         static void TestTempTxtFile()
         {
-            Program.DisplayBeginTestLine("Zadadanie 2 - TempTxtFile");
+            Program.DisplayBeginTestLine("Zadanie 2 - TempTxtFile");
 
             using (TempTxtFile file = new TempTxtFile())
             {
@@ -88,6 +89,19 @@ namespace TempElementsConsoleApp
                 Program.DisplayEndTestLine();
             }
 
+        }
+        static void TestTempDir()
+        {
+            Program.DisplayBeginTestLine("Zadadanie 3 - TempDir");
+            using (TempDir dir = new TempDir())
+            {
+                Console.WriteLine("Sprawdź, czy katalog został utworzony.");
+                Console.ReadLine();
+
+                Console.WriteLine("Sprawdź, czy katalog został usunięty.");
+                dir.Dispose();
+            }
+            Program.DisplayEndTestLine();
         }
     }
 }
