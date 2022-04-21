@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TempElementsLib.Interfaces;
+using TempElementsLib.src.Interfaces;
 
 namespace TempElementsLib.src.Classes
 {
-    public class TempDir : ITempDir
+    public class TempDir : ITempDir, IMovableElement
     {
 
         public readonly DirectoryInfo directoryInfo;
@@ -57,7 +58,10 @@ namespace TempElementsLib.src.Classes
             IsDestroyed = true;
 
         }
-
+        public void MoveTo(string newPath)
+        {
+            directoryInfo.MoveTo(newPath);
+        }
 
 
 

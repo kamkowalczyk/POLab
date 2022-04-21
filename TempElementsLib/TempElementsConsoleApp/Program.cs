@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using TempElementsLib.src.Classes;
 
 namespace TempElementsConsoleApp
@@ -11,9 +12,10 @@ namespace TempElementsConsoleApp
 
             //Program.CheckWithTryAndCatch();
             // TestTempTxtFile();
-            TestTempDir();
+            //TestTempDir();
+            TestTempElementsList();
         }
-        #region USING
+   
         static void Zadanie1CheckUsing()
         {
 
@@ -35,7 +37,7 @@ namespace TempElementsConsoleApp
             Program.DisplayEndTestLine();
 
         }
-        #endregion
+
 
 
         static void CheckWithTryAndCatch()
@@ -102,6 +104,27 @@ namespace TempElementsConsoleApp
                 dir.Dispose();
             }
             Program.DisplayEndTestLine();
+        }
+        public static void TestTempElementsList()
+        {
+            Program.DisplayBeginTestLine("Zadadanie 4 - kolekcja elementów tymczasowych");
+            TempElementsList list = new TempElementsList();
+
+            Console.WriteLine("Dodawanie elementów: ");
+            TempTxtFile tempTxtFile = list.AddElement<TempTxtFile>();
+            tempTxtFile.AddText("TEST1");
+            tempTxtFile.AddText("TEST2");
+
+            TempTxtFile tempTxtFile2 = list.AddElement<TempTxtFile>();
+            tempTxtFile2.AddText("TEST3");
+
+            Console.WriteLine("Sprawdź, czy elementy zostały utworzone");
+            Console.ReadLine();
+
+            Console.WriteLine("Sprawdź, czy plik został przeniesiony");
+            list.MoveElementTo(tempTxtFile, Path.GetTempPath() + "copied.txt");
+            list.Dispose();
+            Console.ReadLine();
         }
     }
 }

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TempElementsLib.Interfaces;
+using TempElementsLib.src.Interfaces;
 
 namespace TempElementsLib.src.Classes
 {
-    public class TempFile : ITempFile
+    public class TempFile : ITempFile, IMovableElement
     {
         public readonly FileStream fileStream;
 
@@ -62,6 +63,11 @@ namespace TempElementsLib.src.Classes
             byte[] info = new UTF8Encoding(true).GetBytes(value);
             fileStream.Write(info, 0, info.Length);
             fileStream.Flush();
+        }
+        public void MoveTo(string newPath)
+        {
+            this.fileStream.Close();
+            this.fileInfo.MoveTo(newPath);
         }
     }
 }
