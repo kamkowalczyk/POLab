@@ -7,9 +7,10 @@ namespace TempElementsConsoleApp
     {
         static void Main(string[] args)
         {
-            Program.Zadanie1CheckUsing();
+            //Program.Zadanie1CheckUsing();
 
-            Program.CheckWithTryAndCatch();
+            //Program.CheckWithTryAndCatch();
+           // TestTempTxtFile();
         }
         #region USING
         static void Zadanie1CheckUsing()
@@ -69,6 +70,24 @@ namespace TempElementsConsoleApp
         static void DisplayEndTestLine()
         {
             Console.Write("-- ** --");
+        }
+        static void TestTempTxtFile()
+        {
+            Program.DisplayBeginTestLine("Zadadanie 2 - TempTxtFile");
+
+            using (TempTxtFile file = new TempTxtFile())
+            {
+                file.Write("Test");
+                file.WriteLine("Test2");
+                Console.WriteLine("Sprawdz czy dane wpisały się do pliku");
+
+                Console.ReadLine();
+
+                Console.WriteLine("W tym momencie plik powinien się usunąć..");
+
+                Program.DisplayEndTestLine();
+            }
+
         }
     }
 }
