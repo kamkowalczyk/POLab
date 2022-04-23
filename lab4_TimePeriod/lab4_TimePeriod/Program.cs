@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace lab4_time
+namespace lab4_TimePeriod
 {
     class Program
     {

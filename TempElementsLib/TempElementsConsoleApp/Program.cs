@@ -8,11 +8,11 @@ namespace TempElementsConsoleApp
     {
         static void Main(string[] args)
         {
-            //Program.Zadanie1CheckUsing();
+           Program.Zadanie1CheckUsing();
 
-            //Program.CheckWithTryAndCatch();
-            // TestTempTxtFile();
-            //TestTempDir();
+            Program.CheckWithTryAndCatch();
+             TestTempTxtFile();
+            TestTempDir();
             TestTempElementsList();
         }
    

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,30 +7,54 @@ using System.Threading.Tasks;
 
 namespace BitMatrix
 {
-    internal class BitMatrixPartial
+    public partial class BitMatrix : IEquatable<BitMatrix>
     {
-        public override String ToString()
+        public override bool Equals(object? obj)
         {
-            return ToString("X ", "  ", Environment.NewLine);
+            return Equals(obj as BitMatrix);
         }
 
-    
-        public String ToString(String setString, String unsetString, string newLine)
+        public bool Equals(BitMatrix other)
         {
-            return buildToString(setString, unsetString, Environment.NewLine);
-        }
-        private String buildToString(String setString, String unsetString, String lineSeparator)
-        {
-            var result = new StringBuilder(height * (width + 1));
-            for (int y = 0; y < height; y++)
+            if (other == null) return false;
+            if (this.NumberOfColumns != other.NumberOfColumns || this.NumberOfRows != other.NumberOfRows)
             {
-                for (int x = 0; x < width; x++)
-                {
-                    result.Append(this[x, y] ? setString : unsetString);
-                }
-                result.Append(lineSeparator);
+                return false;
             }
-            return result.ToString();
+
+            if (this.data.Count != other.data.Count)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < this.data.Count; i++)
+            {
+                if (this.data[i] != other.data[i]) return false;
+            }
+
+            return true;
         }
+
+        public override int GetHashCode()
+        {
+            return this.data.GetHashCode();
+        }
+
+        public static bool operator ==(BitMatrix bitM1, BitMatrix bitM2)
+        {
+            if (((object)bitM1) == null || ((object)bitM2) == null)
+                return Object.Equals(bitM1, bitM2);
+
+            return bitM1.Equals(bitM2);
+        }
+        public static bool operator !=(BitMatrix bitM1, BitMatrix bitM2)
+        {
+            if (((object)bitM1) == null || ((object)bitM2) == null)
+                return !Object.Equals(bitM1, bitM2);
+
+            return !(bitM1.Equals(bitM2));
+        }
+
     }
 }
+
