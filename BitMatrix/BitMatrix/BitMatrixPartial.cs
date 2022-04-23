@@ -7,54 +7,33 @@ using System.Threading.Tasks;
 
 namespace BitMatrix
 {
-    public partial class BitMatrix : IEquatable<BitMatrix>
+    public partial class BitMatrix : IEnumerable<int>
     {
-        public override bool Equals(object? obj)
+        public int this[int i, int j]
         {
-            return Equals(obj as BitMatrix);
-        }
-
-        public bool Equals(BitMatrix other)
-        {
-            if (other == null) return false;
-            if (this.NumberOfColumns != other.NumberOfColumns || this.NumberOfRows != other.NumberOfRows)
+            get
             {
-                return false;
+                if (i >= NumberOfRows || j >= NumberOfColumns || i < 0 || j < 0) throw new IndexOutOfRangeException();
+                return BoolToBit(data[(i * NumberOfColumns) + j]);
             }
-
-            if (this.data.Count != other.data.Count)
+            set
             {
-                return false;
+                if (i >= NumberOfRows || j >= NumberOfColumns || i < 0 || j < 0) throw new IndexOutOfRangeException();
+                data[(i * NumberOfColumns) + j] = BitToBool(value);
             }
-
-            for (int i = 0; i < this.data.Count; i++)
-            {
-                if (this.data[i] != other.data[i]) return false;
-            }
-
-            return true;
         }
 
-        public override int GetHashCode()
+
+        public IEnumerator<int> GetEnumerator()
         {
-            return this.data.GetHashCode();
+            foreach (bool bit in data)
+                yield return BoolToBit(bit);
         }
 
-        public static bool operator ==(BitMatrix bitM1, BitMatrix bitM2)
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            if (((object)bitM1) == null || ((object)bitM2) == null)
-                return Object.Equals(bitM1, bitM2);
-
-            return bitM1.Equals(bitM2);
+            return GetEnumerator();
         }
-        public static bool operator !=(BitMatrix bitM1, BitMatrix bitM2)
-        {
-            if (((object)bitM1) == null || ((object)bitM2) == null)
-                return !Object.Equals(bitM1, bitM2);
-
-            return !(bitM1.Equals(bitM2));
-        }
-
     }
 }
 
