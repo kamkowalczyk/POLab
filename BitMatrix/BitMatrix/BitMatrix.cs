@@ -177,7 +177,7 @@ namespace BitMatrix
         {
             return GetEnumerator();
         }
-        object ICloneable.Clone()
+        public object ICloneable.Clone()
         {
             var clone = new BitMatrix(NumberOfRows, NumberOfColumns);
 

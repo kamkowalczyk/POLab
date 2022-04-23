@@ -5,61 +5,87 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BitMatrix
 {
     public partial class BitMatrix
     {
-        public static BitMatrix Parse(string s)
+        public BitMatrix And(BitMatrix other)
         {
-            if (s == null || s.Length == 0) throw new ArgumentNullException();
+            if (other == null) throw new ArgumentNullException();
+            if (NumberOfColumns != other.NumberOfColumns || NumberOfRows != other.NumberOfRows) throw new ArgumentException();
 
-            var parsedInts = new List<int>();
-            int numOfRows = 0;
-            int numOfCols = -1;
-
-            foreach (string line in s.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            for (int i = 0; i < data.Length; i++)
             {
-                foreach (char ch in line.Trim())
-                {
-                    var newInt = (int)char.GetNumericValue(ch);
-                    if (newInt != 0 && newInt != 1) throw new FormatException();
-                    parsedInts.Add(newInt);
-                }
-                numOfRows++;
-
-                if (numOfCols != -1 && numOfCols != line.Trim().Length) throw new FormatException();
-                numOfCols = line.Trim().Length;
+                data[i] = data[i] & other.data[i];
             }
 
-            return new BitMatrix(numOfRows, numOfCols, parsedInts.ToArray());
+            return this;
         }
 
-        public static bool TryParse(string s, out BitMatrix result)
+        public BitMatrix Or(BitMatrix other)
         {
-            result = null;
-            if (s == null || s.Length == 0) return false;
+            if (other == null) throw new ArgumentNullException();
+            if (NumberOfColumns != other.NumberOfColumns || NumberOfRows != other.NumberOfRows) throw new ArgumentException();
 
-            var parsedInts = new List<int>();
-            int numOfRows = 0;
-            int numOfCols = -1;
-
-            foreach (string line in s.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            for (int i = 0; i < data.Length; i++)
             {
-                foreach (char ch in line.Trim())
-                {
-                    var newInt = (int)char.GetNumericValue(ch);
-                    if (newInt != 0 && newInt != 1) return false;
-                    parsedInts.Add(newInt);
-                }
-                numOfRows++;
-
-                if (numOfCols != -1 && numOfCols != line.Trim().Length) return false;
-                numOfCols = line.Trim().Length;
+                data[i] = data[i] | other.data[i];
             }
 
-            result = new BitMatrix(numOfRows, numOfCols, parsedInts.ToArray());
-            return true;
+            return this;
         }
+     
+        public BitMatrix Xor(BitMatrix other)
+        {
+            if (other == null) throw new ArgumentNullException();
+            if (NumberOfColumns != other.NumberOfColumns || NumberOfRows != other.NumberOfRows) throw new ArgumentException();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = data[i] ^ other.data[i];
+            }
+
+            return this;
+        }
+
+        public BitMatrix Not()
+        {
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = !data[i];
+            }
+            return this;
+        }
+
+        public static BitMatrix operator &(BitMatrix b1, BitMatrix b2)
+        {
+            if (b1 == null || b2 == null) throw new ArgumentNullException();
+            if (b1.NumberOfColumns != b2.NumberOfColumns || b1.NumberOfRows != b2.NumberOfRows) throw new ArgumentException();
+            var newMatrix = (BitMatrix)b1.Clone();
+            return newMatrix.And(b2);
+        }
+        public static BitMatrix operator |(BitMatrix b1, BitMatrix b2)
+        {
+            if (b1 == null || b2 == null) throw new ArgumentNullException();
+            if (b1.NumberOfColumns != b2.NumberOfColumns || b1.NumberOfRows != b2.NumberOfRows) throw new ArgumentException();
+            var newMatrix = (BitMatrix)b1.Clone();
+            return newMatrix.Or(b2);
+        }
+        public static BitMatrix operator ^(BitMatrix b1, BitMatrix b2)
+        {
+            if (b1 == null || b2 == null) throw new ArgumentNullException();
+            if (b1.NumberOfColumns != b2.NumberOfColumns || b1.NumberOfRows != b2.NumberOfRows) throw new ArgumentException();
+            var newMatrix = (BitMatrix)b1.Clone();
+            return newMatrix.Xor(b2);
+        }
+        public static BitMatrix operator !(BitMatrix b1)
+        {
+            if (b1 == null) throw new ArgumentNullException();
+            var newMatrix = (BitMatrix)b1.Clone();
+            return newMatrix.Not();
+        }
+      
     }
 }
 
