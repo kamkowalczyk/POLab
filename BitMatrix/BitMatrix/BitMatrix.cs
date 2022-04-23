@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace BitMatrix
 {
@@ -29,13 +30,14 @@ namespace BitMatrix
         {
             get
             {
-                if (i > NumberOfRows || j > NumberOfColumns) throw new IndexOutOfRangeException();
+                if (i >= NumberOfRows || j >= NumberOfColumns || i < 0 || j < 0) throw new IndexOutOfRangeException();
                 return BoolToBit(data[(i * NumberOfColumns) + j]);
             }
             set
             {
-                if (i > NumberOfRows || j > NumberOfColumns) throw new IndexOutOfRangeException();
+                if (i >= NumberOfRows || j >= NumberOfColumns || i < 0 || j < 0) throw new IndexOutOfRangeException();
                 data[(i * NumberOfColumns) + j] = BitToBool(value);
+
             }
         }
 
@@ -165,6 +167,13 @@ namespace BitMatrix
 
             return !(bitM1.Equals(bitM2));
         }
+        public IEnumerator<int> GetEnumerator()
+        {
+            foreach (bool bit in data)
+                yield return BoolToBit(bit);
+        }
+
+      
 
     }
 

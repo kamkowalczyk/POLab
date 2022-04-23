@@ -7,33 +7,21 @@ using System.Threading.Tasks;
 
 namespace BitMatrix
 {
-    public partial class BitMatrix : IEnumerable<int>
+    public partial class BitMatrix :  ICloneable
     {
-        public int this[int i, int j]
+        public object Clone()
         {
-            get
+            var clone = new BitMatrix(NumberOfRows, NumberOfColumns);
+
+            for (int i = 0; i < data.Count; i++)
             {
-                if (i >= NumberOfRows || j >= NumberOfColumns || i < 0 || j < 0) throw new IndexOutOfRangeException();
-                return BoolToBit(data[(i * NumberOfColumns) + j]);
+                clone.data[i] = data[i];
             }
-            set
-            {
-                if (i >= NumberOfRows || j >= NumberOfColumns || i < 0 || j < 0) throw new IndexOutOfRangeException();
-                data[(i * NumberOfColumns) + j] = BitToBool(value);
-            }
+
+            return clone;
         }
 
-
-        public IEnumerator<int> GetEnumerator()
-        {
-            foreach (bool bit in data)
-                yield return BoolToBit(bit);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+     
     }
 }
 
