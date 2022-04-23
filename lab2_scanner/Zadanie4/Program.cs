@@ -14,21 +14,21 @@ namespace Zadanie4
             scanner.StandbyOn();
             var scannerStatus = scanner.GetState();
             var printerStatus = printer.GetState();
-            var xerosStatus = xerox.CopierGetState();
+            var xerosStatus = xerox.GetCopierState();
             xerox.CopierStandbyOn();
             scannerStatus = scanner.GetState();
             printerStatus = printer.GetState();
-            xerosStatus = xerox.CopierGetState();
-            var counter = xerox.Counter;
+            xerosStatus = xerox.GetCopierState();
+            var counter = xerox.CopierCounter;
 
             IDocument doc1 = new PDFDocument("aaa.pdf");
-            xerox.Print(in doc1);
+            xerox.CopierPrint(in doc1);
 
           
 
             xerox.ScanAndPrint();
-            System.Console.WriteLine(printer.PrintCounter);
-            System.Console.WriteLine(scanner.ScanCounter);
+            System.Console.WriteLine(printer._PrintCounter);
+            System.Console.WriteLine(scanner._ScanCounter);
         }
     }
 }

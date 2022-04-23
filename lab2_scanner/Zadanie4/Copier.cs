@@ -10,99 +10,126 @@ namespace Zadanie4
 {
     public class Copier : IPrinter, IScanner
     {
-        public int PrintCounter { get; set; }
-        public int ScanCounter { get; set; }
-        public new int Counter { get; set; }
+    
+        private int ScanLimit = 0;
 
-        private static State state = State.off;
-        public State CopierGetState()
+       
+        private int PrintLimit = 0;
+
+     
+        public int CopierCounter { get { return ((IDevice)this).Counter; } }
+
+       
+        private static State State = State.off;
+
+       
+        public State GetCopierState()
         {
-            return state;
+            return State;
         }
 
-
+        
         public void CopierStandbyOn()
         {
-          
             ((IScanner)this).StandbyOn();
             ((IPrinter)this).StandbyOn();
-            Counter++;
         }
 
+       
         public void CopierStandbyOff()
         {
             ((IScanner)this).StandbyOff();
             ((IPrinter)this).StandbyOff();
         }
-
+       
         void IDevice.SetState(State state)
         {
             var printerState = ((IPrinter)this).GetState();
             var scannerState = ((IScanner)this).GetState();
             if (printerState == scannerState)
-            {
-                state = printerState;
-            }
+                State = printerState;
             else if (printerState != State.off && scannerState == State.off)
-            {
-                state = printerState;
-            }
+                State = printerState;
             else if (printerState == State.off && scannerState != State.off)
-            {
-                state = scannerState;
-            }
+                State = scannerState;
             else
-            {
-                state = State.on;
-            }
-        }
-        public void Print(in IDocument document)
-        {
-            if (state == IDevice.State.off) return;
-
-            if (((IPrinter)this).GetState() == State.standby)
-                ((IPrinter)this).StandbyOff();
-            if (PrintCounter > 0 && PrintCounter % 3 == 0)
-            {
-                ((IPrinter)this).StandbyOn();
-                Thread.Sleep(1000);
-                ((IPrinter)this).StandbyOff();
-                PrintCounter = 0;
-            }
-            ((IScanner)this).StandbyOn();
-            ((IPrinter)this).Print(in document);
-            PrintCounter++;
+                State = State.on;
         }
 
-        public void Scan(out IDocument document, IDocument.FormatType formatType )
+      
+        public void CopierScan(IDocument document)
         {
-            if (state == IDevice.State.off) { document = null; return; }
-
+            if (((IScanner)this).GetState() == State.off)
+                return;
             if (((IScanner)this).GetState() == State.standby)
                 ((IScanner)this).StandbyOff();
-            if (ScanCounter > 0 && ScanCounter % 2 == 0)
+            if (ScanLimit % 2 == 0)
             {
                 ((IScanner)this).StandbyOn();
                 Thread.Sleep(1000);
                 ((IScanner)this).StandbyOff();
-                ScanCounter = 0;
+                ScanLimit = 0;
+            }
+            ((IPrinter)this).StandbyOn();
+            ((IScanner)this).Scan(out document);
+            ScanLimit++;
+        }
+
+      
+        public void CopierScan(out IDocument document, IDocument.FormatType formatType)
+        {
+            document = null;
+            if (((IScanner)this).GetState() == State.off)
+                return;
+            if (((IScanner)this).GetState() == State.standby)
+                ((IScanner)this).StandbyOff();
+            if (ScanLimit > 0 && ScanLimit % 2 == 0)
+            {
+                ((IScanner)this).StandbyOn();
+                Thread.Sleep(1000);
+                ((IScanner)this).StandbyOff();
+                ScanLimit = 0;
             }
             ((IPrinter)this).StandbyOn();
             ((IScanner)this).Scan(out document, formatType);
-             ScanCounter++;
+            ScanLimit++;
         }
 
+       
+        public void CopierPrint(in IDocument document)
+        {
+            if (((IPrinter)this).GetState() == State.off)
+                return;
+            if (((IPrinter)this).GetState() == State.standby)
+                ((IPrinter)this).StandbyOff();
+            if (PrintLimit > 0 && PrintLimit % 3 == 0)
+            {
+                ((IPrinter)this).StandbyOn();
+                Thread.Sleep(1000);
+                ((IPrinter)this).StandbyOff();
+                PrintLimit = 0;
+            }
+            ((IScanner)this).StandbyOn();
+            ((IPrinter)this).Print(in document);
+           PrintLimit++;
+        }
+
+      
         public void ScanAndPrint()
         {
-            if (state == IDevice.State.off) return;
-            else if (CopierGetState() == State.standby)
+            if (GetCopierState() == State.off)
+                return;
+            else if (GetCopierState() == State.standby)
                 CopierStandbyOn();
             IDocument doc = null;
-            Scan(out doc, IDocument.FormatType.JPG);
+            CopierScan(out doc, IDocument.FormatType.JPG);
             if (doc == null)
                 return;
-           Print(in doc);
-
+            CopierPrint(in doc);
         }
+
+
+
     }
 }
+
